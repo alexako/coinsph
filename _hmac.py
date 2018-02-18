@@ -17,7 +17,7 @@ def get_nonce():
     Using the current time is perfect for this.
     """
 
-    return int(time.time() * 1e6)
+    return str(int(time.time() * 1e6))
 
 def sign_request(url, nonce, body=None):
     " Return an HMAC signature based on the request. "
