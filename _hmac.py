@@ -20,12 +20,12 @@ def get_nonce():
     return int(time.time() * 1e6)
 
 def sign_request(url, nonce, body=None):
-    " Return an HMAX signature based on the request. "
+    " Return an HMAC signature based on the request. "
 
     if body is None:
         message = str(nonce) + url
     else:
-        body = json.dumps(body, separators(',', ':'))
+        body = json.dumps(body, separators=(',', ':'))
         message = str(nonce) + url + body
 
     return str(
